@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "games",
+  "info": {
+    "singularName": "game",
+    "pluralName": "games",
+    "displayName": "Game",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "playstationReleaseDate": {
+      "type": "date",
+      "required": true
+    },
+    "pcReleaseDate": {
+      "type": "date",
+      "required": false
+    },
+    "confirmed": {
+      "type": "boolean",
+      "required": false
+    }
+  }
+}
