@@ -132,6 +132,7 @@ vite-project/pnpm-debug.log*
 vite-project/lerna-debug.log*
 
 vite-project/node_modules
+vite-project/package-lock.json
 vite-project/dist
 vite-project/dist-ssr
 vite-project/*.local
@@ -152,6 +153,7 @@ vite-project/*.sw?
 # react-project
 ##############################################################################################
 react-project/node_modules
+react-project/package-lock.json
 react-project/.pnp
 react-project/.pnp.js
 /build
