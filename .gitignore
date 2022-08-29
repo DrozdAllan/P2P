@@ -135,6 +135,7 @@ vite-project/node_modules
 vite-project/dist
 vite-project/dist-ssr
 vite-project/*.local
+vite-project/.env
 
 # Editor directories and files
 vite-project/.vscode/*
@@ -146,3 +147,21 @@ vite-project/*.ntvs*
 vite-project/*.njsproj
 vite-project/*.sln
 vite-project/*.sw?
+
+##############################################################################################
+# react-project
+##############################################################################################
+react-project/node_modules
+react-project/.pnp
+react-project/.pnp.js
+/build
+react-project/# misc
+react-project/.DS_Store
+react-project/.env.local
+react-project/.env.development.local
+react-project/.env.test.local
+react-project/.env.production.local
+
+react-project/npm-debug.log*
+react-project/yarn-debug.log*
+react-project/yarn-error.log*

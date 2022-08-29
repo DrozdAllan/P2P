@@ -31,6 +31,14 @@
     "confirmed": {
       "type": "boolean",
       "required": false
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }
