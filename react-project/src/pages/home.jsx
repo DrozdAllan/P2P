@@ -13,7 +13,7 @@ export default function Home() {
         }
 
         componentDidMount() {
-            fetch("http://localhost:1337/api/games?populate=image")
+            fetch("http://localhost:1337/api/games?fields=title,description&populate=image&sort=pcReleaseDate:desc")
                 .then(res => res.json())
                 .then((result) => {
                     this.setState({
@@ -31,16 +31,17 @@ export default function Home() {
             if (error) {
                 return <div>Error: {error.message}</div>;
             } else if (!isLoaded) {
+                // TODO: proper skeleton when the design is finished
                 return <div>Loading...</div>;
             } else {
                 return (<Wrap spacing={6} m='6' justify="center">
                     {items.map(item => (
                         <WrapItem maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' key={item.id}>
                             <Box p='2'>
-                                <Box mb='5' fontWeight='semibold' as='h4' lineHeight='tight' noOfLines={1}>
+                                <Box mt='3' fontWeight='semibold' as='h4' lineHeight='tight' noOfLines={1}>
                                     {item.attributes.title}
                                 </Box>
-                                <Box align="center">
+                                <Box my="3" align="center">
                                     <Image boxSize="200" objectFit="cover" src={`http://localhost:1337${item.attributes.image.data.attributes.formats.small.url}`} />
                                 </Box>
                                 <Box>
@@ -48,7 +49,7 @@ export default function Home() {
                                         {item.attributes.description}
                                     </Text>
                                 </Box>
-                                <Box py="4">
+                                <Box py="3">
                                     <Link to={`details/${item.id}`}><Button>Read more</Button></Link>
                                 </Box>
                             </Box>

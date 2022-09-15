@@ -12,6 +12,10 @@ function App() {
                 <Divider orientation='vertical' />
                 </Center>
                 <Link to="/">Home</Link>
+                <Center height={'40px'}>
+                <Divider orientation='vertical' />
+                </Center>
+                <Link to="/about">About</Link>
             </HStack>
         </Box> <Box> <Outlet /> </Box>
     </div>);

@@ -1,5 +1,6 @@
 import React from "react";
-import {Box, Container, Flex, HStack, Image, Skeleton, Spacer, Text} from "@chakra-ui/react";
+import {Box, Container, Flex, Grid, HStack, Image, Skeleton, Spacer, Text} from "@chakra-ui/react";
+import showdown from "showdown";
 
 export default class GameComponent extends React.Component {
     constructor(props) {
@@ -29,6 +30,7 @@ export default class GameComponent extends React.Component {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
             return (
+                // TODO: proper skeleton when the design is finished
                 <Box maxW='sm' m="5" borderWidth='1px' borderRadius='lg' overflow='hidden' key={item.id}>
                     <Box p='2'>
                         <Box mb='5' fontWeight='semibold' as='h4' lineHeight='tight' noOfLines={1}>
@@ -41,23 +43,26 @@ export default class GameComponent extends React.Component {
                 </Box>
             );
         } else {
+            const converter = new showdown.Converter();
+            const htmlDesc = converter.makeHtml(item.attributes.description);
+
             return (
-                <Container maxW="4xl" centerContent>
-                <Box maxW='xl' overflow='hidden' key={item.id}>
-                        <Box mb='5' fontWeight='bold' fontSize="3xl" as='h2' align="center">
+                <Container maxW="8xl" centerContent>
+                <Box maxW='8xl' overflow='hidden' key={item.id}>
+                        <Box fontWeight='bold' fontSize="3xl" as='h2' align="center">
                             {item.attributes.title}
                         </Box>
-                    <Box align="center">
-                        <Image boxSize="450px" src={`http://localhost:1337${item.attributes.image.data.attributes.url}`} />
-                    </Box>
-                    <Flex justify="space-between" my="5">
+                    <Grid templateColumns="repeat(3, 1fr)" gap="6" justifyItems="center" alignItems="center" my="5">
                         <Box fontWeight="bold">Release date on Playstation : {item.attributes.playstationReleaseDate}</Box>
+                        <Image boxSize="350px" objectFit="cover" src={`http://localhost:1337${item.attributes.image.data.attributes.url}`} />
                         <Box fontWeight="bold">Release date on PC : {item.attributes.pcReleaseDate}</Box>
-                    </Flex>
-                        <Box align="center">
-                            <Text>
-                                {item.attributes.description}
-                            </Text>
+                    </Grid>
+                    {/*<Flex justify="space-between" my="5">*/}
+                    {/*    <Box fontWeight="bold">Release date on Playstation : {item.attributes.playstationReleaseDate}</Box>*/}
+                    {/*    <Box fontWeight="bold">Release date on PC : {item.attributes.pcReleaseDate}</Box>*/}
+                    {/*</Flex>*/}
+                        <Box>
+                            <Text dangerouslySetInnerHTML={{ __html: htmlDesc }} />
                         </Box>
                 </Box>
                 </Container>

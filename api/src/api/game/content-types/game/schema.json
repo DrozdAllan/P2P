@@ -17,9 +17,6 @@
       "required": true,
       "unique": true
     },
-    "description": {
-      "type": "text"
-    },
     "playstationReleaseDate": {
       "type": "date",
       "required": true
@@ -33,11 +30,15 @@
       "required": false
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "richtext",
       "required": true
     }
   }
