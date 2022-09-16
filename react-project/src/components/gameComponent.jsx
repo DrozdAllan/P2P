@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Container, Flex, Grid, HStack, Image, Skeleton, Spacer, Text} from "@chakra-ui/react";
+import {Box, Container, Flex, Grid, HStack, Image, Skeleton, SkeletonText, Spacer, Text} from "@chakra-ui/react";
 import showdown from "showdown";
 
 export default class GameComponent extends React.Component {
@@ -31,16 +31,21 @@ export default class GameComponent extends React.Component {
         } else if (!isLoaded) {
             return (
                 // TODO: proper skeleton when the design is finished
-                <Box maxW='sm' m="5" borderWidth='1px' borderRadius='lg' overflow='hidden' key={item.id}>
-                    <Box p='2'>
-                        <Box mb='5' fontWeight='semibold' as='h4' lineHeight='tight' noOfLines={1}>
-                            <Skeleton height="2" />
+                <Container maxW="8xl" centerContent>
+                    <Box maxW='8xl' overflow='hidden'>
+                        <Box fontWeight='bold' fontSize="3xl" as='h2' align="center">
+                            <SkeletonText noOfLines={1} />
                         </Box>
+                        <Grid templateColumns="repeat(3, 1fr)" gap="6" justifyItems="center" alignItems="center" my="5">
+                            <Box fontWeight="bold">Release date on Playstation : 9999-99-99</Box>
+                            <Skeleton boxSize="350" />
+                            <Box fontWeight="bold">Release date on PC : 6666-66-66</Box>
+                        </Grid>
                         <Box>
-                                <Skeleton height="5" />
+                            <SkeletonText noOfLines={6} />
                         </Box>
                     </Box>
-                </Box>
+                </Container>
             );
         } else {
             const converter = new showdown.Converter();
@@ -54,13 +59,9 @@ export default class GameComponent extends React.Component {
                         </Box>
                     <Grid templateColumns="repeat(3, 1fr)" gap="6" justifyItems="center" alignItems="center" my="5">
                         <Box fontWeight="bold">Release date on Playstation : {item.attributes.playstationReleaseDate}</Box>
-                        <Image boxSize="350px" objectFit="cover" src={`http://localhost:1337${item.attributes.image.data.attributes.url}`} />
+                        <Image borderRadius="md" boxSize="350px" objectFit="cover" src={`http://localhost:1337${item.attributes.image.data.attributes.url}`} />
                         <Box fontWeight="bold">Release date on PC : {item.attributes.pcReleaseDate}</Box>
                     </Grid>
-                    {/*<Flex justify="space-between" my="5">*/}
-                    {/*    <Box fontWeight="bold">Release date on Playstation : {item.attributes.playstationReleaseDate}</Box>*/}
-                    {/*    <Box fontWeight="bold">Release date on PC : {item.attributes.pcReleaseDate}</Box>*/}
-                    {/*</Flex>*/}
                         <Box>
                             <Text dangerouslySetInnerHTML={{ __html: htmlDesc }} />
                         </Box>

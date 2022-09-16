@@ -1,6 +1,7 @@
 import React from "react";
-import {Box, Button, HStack, Image, Text, Wrap, WrapItem} from "@chakra-ui/react";
+import {Box, Button, HStack, Image, Skeleton, SkeletonText, Text, Wrap, WrapItem} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
+import GameSkeleton from "../components/gameSkeleton";
 
 export default function Home() {
 
@@ -31,10 +32,12 @@ export default function Home() {
             if (error) {
                 return <div>Error: {error.message}</div>;
             } else if (!isLoaded) {
-                // TODO: proper skeleton when the design is finished
-                return <div>Loading...</div>;
+                return (
+                    <GameSkeleton />
+                );
             } else {
-                return (<Wrap spacing={6} m='6' justify="center">
+                return (
+                    <Wrap spacing={6} m='6' justify="center">
                     {items.map(item => (
                         <WrapItem maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' key={item.id}>
                             <Box p='2'>
@@ -42,7 +45,7 @@ export default function Home() {
                                     {item.attributes.title}
                                 </Box>
                                 <Box my="3" align="center">
-                                    <Image boxSize="200" objectFit="cover" src={`http://localhost:1337${item.attributes.image.data.attributes.formats.small.url}`} />
+                                    <Image borderRadius="md" boxSize="200" objectFit="cover" src={`http://localhost:1337${item.attributes.image.data.attributes.formats.small.url}`} />
                                 </Box>
                                 <Box>
                                     <Text noOfLines={6}>
@@ -54,16 +57,16 @@ export default function Home() {
                                 </Box>
                             </Box>
                         </WrapItem>))}
-                </Wrap>);
+                </Wrap>
+                );
             }
         }
     }
 
-    return (
-        <Box style={{padding: "1rem 0", textAlign: "center"}}>
+    return (<div>
         <Text fontSize="2xl">
         These are the games that went from playstation consoles to PC
         </Text>
         <GameGrid />
-    </Box>);
+    </div>);
 }

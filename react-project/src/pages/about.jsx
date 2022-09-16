@@ -1,17 +1,18 @@
 import React from "react";
-import {Box, Button, HStack, Image, Text, Wrap, WrapItem} from "@chakra-ui/react";
-import {Link} from "react-router-dom";
+import {Box, Text, Link} from "@chakra-ui/react";
 import GameComponent from "../components/gameComponent";
 
 export default function About() {
     return (
-        <main style={{padding: "1rem 0"}}>
-
+        <div>
     <Box>
-        <Text noOfLines={6}>
-           TA GUEULE CEST ABOUT ICI
+        <Text fontSize="2xl">
+           About this app
+        </Text>
+        <Text mt="5">
+            This app is developed by <Link href="https://allandrozd.com/" isExternal>Allan Drozd</Link>
         </Text>
     </Box>
-        </main>
-            );
+        </div>
+    );
 }

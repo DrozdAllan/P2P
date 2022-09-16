@@ -9,15 +9,15 @@ function App() {
                     P2P : Playstation To PC
                 </Flex>
                 <Center height={'40px'}>
-                <Divider orientation='vertical' />
+                    <Divider orientation='vertical' />
                 </Center>
                 <Link to="/">Home</Link>
                 <Center height={'40px'}>
-                <Divider orientation='vertical' />
+                    <Divider orientation='vertical' />
                 </Center>
                 <Link to="/about">About</Link>
             </HStack>
-        </Box> <Box> <Outlet /> </Box>
+        </Box> <Box style={{padding: "1rem 0", textAlign: "center"}}> <Outlet /> </Box>
     </div>);
 }
 
