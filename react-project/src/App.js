@@ -3,7 +3,7 @@ import {Outlet, Link} from "react-router-dom"
 
 function App() {
     return (<div>
-        <Box bg='brand.400' color={"whitesmoke"} px={4}>
+        <Box bg='brand' color={"whitesmoke"} px={4}>
             <HStack spacing='12px'>
                 <Flex h={50} alignItems={'center'}>
                     P2P : Playstation To PC

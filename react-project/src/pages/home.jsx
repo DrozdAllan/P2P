@@ -53,7 +53,9 @@ export default function Home() {
                                     </Text>
                                 </Box>
                                 <Box py="3">
-                                    <Link to={`details/${item.id}`}><Button>Read more</Button></Link>
+                                    <Link to={`details/${item.id}`}>
+                                        <Button colorScheme="blue">Read more</Button>
+                                    </Link>
                                 </Box>
                             </Box>
                         </WrapItem>))}
@@ -64,7 +66,7 @@ export default function Home() {
     }
 
     return (<div>
-        <Text fontSize="2xl">
+        <Text fontSize={{ base: '2xl', md:'3xl' }}>
         These are the games that went from playstation consoles to PC
         </Text>
         <GameGrid />

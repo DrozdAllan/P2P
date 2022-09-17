@@ -6,13 +6,8 @@ const theme = extendTheme({
         body: `'Ubuntu', sans-serif`
     },
     colors: {
-        brand: {
-            400: '#507c54',
-            700: '#2a69ac',
-            800: '#153e75',
-            900: '#1a365d',
-        }
-    }
+        brand: '#006FCD',
+    },
 });
 
 export default theme;
