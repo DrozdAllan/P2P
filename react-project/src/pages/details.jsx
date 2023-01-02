@@ -1,5 +1,4 @@
 import React from "react";
-import {Box, HStack, Text} from "@chakra-ui/react";
 import {useParams} from "react-router-dom";
 import GameComponent from '../components/gameComponent';
 

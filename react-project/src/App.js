@@ -17,7 +17,7 @@ function App() {
                 </Center>
                 <Link to="/about">About</Link>
             </HStack>
-        </Box> <Box style={{padding: "1rem 0", textAlign: "center"}}> <Outlet /> </Box>
+        </Box> <Box style={{padding: "1rem 0"}}> <Outlet /> </Box>
     </div>);
 }
 

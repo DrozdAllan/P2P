@@ -1,9 +1,9 @@
 import React from "react";
 import {Box, Button, Skeleton, SkeletonText, Wrap, WrapItem} from "@chakra-ui/react";
-import showdown from "showdown";
 
 export default class gameSkeleton extends React.Component {
     render() {
+        // TODO: remove WrapItem repetition
                   return (
                       <Wrap spacing={6} m='6' justify="center">
                           <WrapItem maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>

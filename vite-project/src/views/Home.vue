@@ -27,7 +27,7 @@ import {ref, onBeforeMount} from 'vue'
 
 const api = import.meta.env.VITE_API_URL;
 
-const name = ref<string>('Allan');
+const name: string ='Allan';
 const results = ref(null);
 
 onBeforeMount(() => {

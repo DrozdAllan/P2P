@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Button, HStack, Image, Skeleton, SkeletonText, Text, Wrap, WrapItem} from "@chakra-ui/react";
+import {Box, Button, Image, Text, Wrap, WrapItem} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 import GameSkeleton from "../components/gameSkeleton";
 
@@ -30,21 +30,21 @@ export default function Home() {
         render() {
             const {error, isLoaded, items} = this.state;
             if (error) {
-                return <div>Error: {error.message}</div>;
+                return <Box align='center'>Error: {error.message}</Box>;
             } else if (!isLoaded) {
                 return (
                     <GameSkeleton />
                 );
             } else {
                 return (
-                    <Wrap spacing={6} m='6' justify="center">
+                    <Wrap spacing='6' m='6' justify='center'>
                     {items.map(item => (
                         <WrapItem maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' key={item.id}>
-                            <Box p='2'>
+                            <Box p='2' align='center'>
                                 <Box mt='3' fontWeight='semibold' as='h4' lineHeight='tight' noOfLines={1}>
                                     {item.attributes.title}
                                 </Box>
-                                <Box my="3" align="center">
+                                <Box my="3">
                                     <Image borderRadius="md" boxSize="200" objectFit="cover" src={`http://localhost:1337${item.attributes.image.data.attributes.formats.small.url}`} />
                                 </Box>
                                 <Box>
@@ -66,7 +66,7 @@ export default function Home() {
     }
 
     return (<div>
-        <Text fontSize={{ base: '2xl', md:'3xl' }}>
+        <Text fontSize={{ base: '2xl', md:'3xl' }} textAlign="center">
         These are the games that went from playstation consoles to PC
         </Text>
         <GameGrid />
