@@ -1,6 +1,7 @@
 import React from "react";
 import {Box, Container, Grid, Image, Skeleton, SkeletonText, Text} from "@chakra-ui/react";
 import showdown from "showdown";
+import {Helmet} from "react-helmet";
 
 export default class GameComponent extends React.Component {
     constructor(props) {
@@ -11,7 +12,7 @@ export default class GameComponent extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:1337/api/games/${this.props.id}?populate=image`)
+        fetch(`${process.env.REACT_APP_GAMES_ENDPOINT}/${this.props.id}?populate=image`)
             .then(res => res.json())
             .then((result) => {
                 this.setState({
@@ -54,6 +55,9 @@ export default class GameComponent extends React.Component {
             return (
 
                 <Box key={item.id} align="center">
+                    <Helmet>
+                        <title>P2P - {item.attributes.title}</title>
+                    </Helmet>
                     <Box fontWeight='bold' fontSize="3xl" as='h2'>
                         {item.attributes.title}
                     </Box>

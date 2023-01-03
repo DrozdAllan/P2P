@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Button, Image, Text, Wrap, WrapItem} from "@chakra-ui/react";
+import {Box, Button, Image, SimpleGrid, Text} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 import GameSkeleton from "../components/gameSkeleton";
 
@@ -14,7 +14,7 @@ export default function Home() {
         }
 
         componentDidMount() {
-            fetch("http://localhost:1337/api/games?fields=title,description&populate=image&sort=pcReleaseDate:desc")
+            fetch(`${process.env.REACT_APP_GAMES_ENDPOINT}?fields=title,description&populate=image&sort=pcReleaseDate:desc`)
                 .then(res => res.json())
                 .then((result) => {
                     this.setState({
@@ -33,22 +33,22 @@ export default function Home() {
                 return <Box align='center'>Error: {error.message}</Box>;
             } else if (!isLoaded) {
                 return (
-                    <GameSkeleton />
+                    <GameSkeleton/>
                 );
             } else {
                 return (
-                    <Wrap spacing='6' m='6' justify='center'>
-                    {items.map(item => (
-                        <WrapItem maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' key={item.id}>
-                            <Box p='2' align='center'>
-                                <Box mt='3' fontWeight='semibold' as='h4' lineHeight='tight' noOfLines={1}>
+                    <SimpleGrid minChildWidth='320px' spacing="6" m="6">
+                        {items.map(item => (
+                            <Box p='2' align='center' borderWidth='1px' borderRadius='lg' key={item.id}>
+                                <Box mt='3' fontWeight='semibold' as='h4' lineHeight='tight' noOfLines="1">
                                     {item.attributes.title}
                                 </Box>
                                 <Box my="3">
-                                    <Image borderRadius="md" boxSize="200" objectFit="cover" src={`http://localhost:1337${item.attributes.image.data.attributes.formats.small.url}`} />
+                                    <Image borderRadius="md" boxSize="200" objectFit="cover"
+                                           src={`http://localhost:1337${item.attributes.image.data.attributes.formats.small.url}`}/>
                                 </Box>
                                 <Box>
-                                    <Text noOfLines={6}>
+                                    <Text noOfLines="6">
                                         {item.attributes.description}
                                     </Text>
                                 </Box>
@@ -58,17 +58,17 @@ export default function Home() {
                                     </Link>
                                 </Box>
                             </Box>
-                        </WrapItem>))}
-                </Wrap>
+                        ))}
+                    </SimpleGrid>
                 );
             }
         }
     }
 
-    return (<div>
-        <Text fontSize={{ base: '2xl', md:'3xl' }} textAlign="center">
-        These are the games that went from playstation consoles to PC
+    return (<Box>
+        <Text fontSize={['2xl', '2xl', '3xl']} textAlign="center">
+            These are the games that went from playstation consoles to PC
         </Text>
-        <GameGrid />
-    </div>);
+        <GameGrid/>
+    </Box>);
 }
