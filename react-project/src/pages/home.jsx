@@ -37,7 +37,7 @@ export default function Home() {
                 );
             } else {
                 return (
-                    <SimpleGrid minChildWidth='320px' spacing="6" m="6">
+                    <SimpleGrid minChildWidth='310px' spacing="6" m={["1","6"]}>
                         {items.map(item => (
                             <Box p='2' align='center' borderWidth='1px' borderRadius='lg' key={item.id}>
                                 <Box mt='3' fontWeight='semibold' as='h4' lineHeight='tight' noOfLines="1">
@@ -66,7 +66,7 @@ export default function Home() {
     }
 
     return (<Box>
-        <Text fontSize={['2xl', '2xl', '3xl']} textAlign="center">
+        <Text fontSize={['2xl', '3xl']} textAlign="center">
             These are the games that went from playstation consoles to PC
         </Text>
         <GameGrid/>

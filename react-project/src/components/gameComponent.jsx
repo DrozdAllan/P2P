@@ -28,25 +28,23 @@ export default class GameComponent extends React.Component {
     render() {
         const {error, isLoaded, item} = this.state;
         if (error) {
-            return <div>Error: {error.message}</div>;
+            // TODO: better error display
+            return <Box>Error: {error.message}</Box>;
         } else if (!isLoaded) {
             return (
-                // TODO: proper skeleton when the design is finished
-                <Container maxW="8xl" centerContent>
-                    <Box maxW='8xl' overflow='hidden'>
-                        <Box fontWeight='bold' fontSize="3xl" as='h2' align="center">
-                            <SkeletonText noOfLines={1}/>
+                <Box align="center">
+                    <Skeleton height={["24px","30px"]} width="400px" />
+                    <Grid templateColumns="repeat(3, 1fr)" gap="6" justifyItems="center" alignItems="center" m="5">
+                        <Box fontSize={["xs", "md"]}>Release date on Playstation : <br/> <Skeleton height={["14px","16px"]} width="100px"/></Box>
+                        <Skeleton boxSize={["100px", "350px"]} objectFit="cover" borderRadius="md"/>
+                        <Box fontSize={["xs", "md"]}>Release date on PC : <br/> <Skeleton height={["14px","16px"]} width="100px"/></Box>
+                    </Grid>
+                        <Box px="12">
+                    <Container maxW='1050px'>
+                        <SkeletonText mt='4' noOfLines={6} spacing='4' skeletonHeight='2' />
+                    </Container>
                         </Box>
-                        <Grid templateColumns="repeat(3, 1fr)" gap="6" justifyItems="center" alignItems="center" my="5">
-                            <Box fontWeight="bold">Release date on Playstation : 9999-99-99</Box>
-                            <Skeleton boxSize="350"/>
-                            <Box fontWeight="bold">Release date on PC : 6666-66-66</Box>
-                        </Grid>
-                        <Box>
-                            <SkeletonText noOfLines={6}/>
-                        </Box>
-                    </Box>
-                </Container>
+                </Box>
             );
         } else {
             const converter = new showdown.Converter();
@@ -58,15 +56,15 @@ export default class GameComponent extends React.Component {
                     <Helmet>
                         <title>P2P - {item.attributes.title}</title>
                     </Helmet>
-                    <Box fontWeight='bold' fontSize="3xl" as='h2'>
+                    <Box fontSize={['2xl', '3xl']}>
                         {item.attributes.title}
                     </Box>
-                    <Grid templateColumns="repeat(3, 1fr)" gap="6" justifyItems="center" alignItems="center" my="5">
-                        <Box fontWeight="bold">Release date on Playstation
-                            : {item.attributes.playstationReleaseDate}</Box>
-                        <Image borderRadius="md" boxSize="350px" objectFit="cover"
+                    <Grid templateColumns="repeat(3, 1fr)" gap="6" justifyItems="center" alignItems="center" m="5">
+                        <Box fontSize={["xs", "md"]}>Release date on Playstation
+                            : <br/> {item.attributes.playstationReleaseDate}</Box>
+                        <Image borderRadius="md" boxSize={["100px", "350px"]} objectFit="cover"
                                src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}/>
-                        <Box fontWeight="bold">Release date on PC : {item.attributes.pcReleaseDate}</Box>
+                        <Box fontSize={["xs", "md"]}>Release date on PC : <br/> {item.attributes.pcReleaseDate}</Box>
                     </Grid>
 
                     <Container maxW='1050px'>

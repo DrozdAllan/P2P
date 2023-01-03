@@ -1,132 +1,33 @@
 import React from "react";
-import {Box, Button, Skeleton, SkeletonText, Wrap, WrapItem} from "@chakra-ui/react";
+import {Box, Button, SimpleGrid, Skeleton, SkeletonText} from "@chakra-ui/react";
 
 export default class gameSkeleton extends React.Component {
     render() {
-        // TODO: remove WrapItem repetition
-                  return (
-                      <Wrap spacing={6} m='6' justify="center">
-                          <WrapItem maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-                              <Box p='2'>
-                                  <Skeleton>
-                                      <Box mt='3' fontWeight='semibold' lineHeight='tight' noOfLines={1}>
-                                          <SkeletonText noOfLines={1} />
-                                      </Box>
-                                  </Skeleton>
-                                  <Box my="3" px="20" align="center">
-                                      <Skeleton boxSize="200" />
-                                  </Box>
-                                  <Box>
-                                      <SkeletonText noOfLines={6} />
-                                  </Box>
-                                  <Box py="3">
-                                      <Button>
-                                          Read more
-                                      </Button>
-                                  </Box>
-                              </Box>
-                          </WrapItem>
-                          <WrapItem maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-                              <Box p='2'>
-                                  <Skeleton>
-                                      <Box mt='3' fontWeight='semibold' lineHeight='tight' noOfLines={1}>
-                                          <SkeletonText noOfLines={1} />
-                                      </Box>
-                                  </Skeleton>
-                                  <Box my="3" px="20" align="center">
-                                      <Skeleton boxSize="200" />
-                                  </Box>
-                                  <Box>
-                                      <SkeletonText noOfLines={6} />
-                                  </Box>
-                                  <Box py="3">
-                                      <Button>
-                                          Read more
-                                      </Button>
-                                  </Box>
-                              </Box>
-                          </WrapItem>
-                          <WrapItem maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-                              <Box p='2'>
-                                  <Skeleton>
-                                      <Box mt='3' fontWeight='semibold' lineHeight='tight' noOfLines={1}>
-                                          <SkeletonText noOfLines={1} />
-                                      </Box>
-                                  </Skeleton>
-                                  <Box my="3" px="20" align="center">
-                                      <Skeleton boxSize="200" />
-                                  </Box>
-                                  <Box>
-                                      <SkeletonText noOfLines={6} />
-                                  </Box>
-                                  <Box py="3">
-                                      <Button>
-                                          Read more
-                                      </Button>
-                                  </Box>
-                              </Box>
-                          </WrapItem>
-                          <WrapItem maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-                              <Box p='2'>
-                                  <Skeleton>
-                                      <Box mt='3' fontWeight='semibold' lineHeight='tight' noOfLines={1}>
-                                          <SkeletonText noOfLines={1} />
-                                      </Box>
-                                  </Skeleton>
-                                  <Box my="3" px="20" align="center">
-                                      <Skeleton boxSize="200" />
-                                  </Box>
-                                  <Box>
-                                      <SkeletonText noOfLines={6} />
-                                  </Box>
-                                  <Box py="3">
-                                      <Button>
-                                          Read more
-                                      </Button>
-                                  </Box>
-                              </Box>
-                          </WrapItem>
-                          <WrapItem maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-                              <Box p='2'>
-                                  <Skeleton>
-                                      <Box mt='3' fontWeight='semibold' lineHeight='tight' noOfLines={1}>
-                                          <SkeletonText noOfLines={1} />
-                                      </Box>
-                                  </Skeleton>
-                                  <Box my="3" px="20" align="center">
-                                      <Skeleton boxSize="200" />
-                                  </Box>
-                                  <Box>
-                                      <SkeletonText noOfLines={6} />
-                                  </Box>
-                                  <Box py="3">
-                                      <Button>
-                                          Read more
-                                      </Button>
-                                  </Box>
-                              </Box>
-                          </WrapItem>
-                          <WrapItem maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-                              <Box p='2'>
-                                  <Skeleton>
-                                      <Box mt='3' fontWeight='semibold' lineHeight='tight' noOfLines={1}>
-                                          <SkeletonText noOfLines={1} />
-                                      </Box>
-                                  </Skeleton>
-                                  <Box my="3" px="20" align="center">
-                                      <Skeleton boxSize="200" />
-                                  </Box>
-                                  <Box>
-                                      <SkeletonText noOfLines={6} />
-                                  </Box>
-                                  <Box py="3">
-                                      <Button>
-                                          Read more
-                                      </Button>
-                                  </Box>
-                              </Box>
-                          </WrapItem>
-                      </Wrap>
+        const skeletons = [];
+        for (let i = 0; i <= 4; i++) {
+            skeletons.push(
+                <Box p='2' align='center' borderWidth='1px' borderRadius='lg' key={i}>
+                    <Skeleton>
+                        <Box mt='3' fontWeight='semibold' as='h4' lineHeight='tight' noOfLines="1">
+                            <SkeletonText noOfLines={1}/>
+                        </Box>
+                    </Skeleton>
+                    <Box my="3">
+                        <Skeleton boxSize="200"/>
+                    </Box>
+                    <Box>
+                        <SkeletonText noOfLines={6}/>
+                    </Box>
+                    <Box py="3">
+                        <Button colorScheme="blue">Read more</Button>
+                    </Box>
+                </Box>
             );
+        }
+        return (
+            <SimpleGrid minChildWidth='310px' spacing="6" m={["1", "6"]}>
+                {skeletons}
+            </SimpleGrid>
+        );
     }
 }

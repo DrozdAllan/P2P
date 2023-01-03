@@ -1,4 +1,4 @@
-import {Box, Flex, HStack, Divider, Center} from '@chakra-ui/react'
+import {Box, Flex, HStack, Divider, Center, Text} from '@chakra-ui/react'
 import {Outlet, Link} from "react-router-dom"
 import {Helmet} from "react-helmet";
 import React from "react";
@@ -9,22 +9,32 @@ export default function App() {
             <Helmet>
                 <title>P2P - Playstation To PC</title>
             </Helmet>
-            <Box bg='brand' color={"whitesmoke"} px={4}>
+            <Box bg='brand' color="whitesmoke" px="4">
                 <HStack spacing='12px'>
-                    <Flex h={50} alignItems={'center'}>
+                    <Flex h="50" alignItems="center">
+                        <Text fontSize={["sm","md"]}>
                         P2P : Playstation To PC
+                        </Text>
                     </Flex>
-                    <Center height={'40px'}>
+                    <Center height="40px">
                         <Divider orientation='vertical'/>
                     </Center>
-                    <Link to="/">Home</Link>
-                    <Center height={'40px'}>
+                    <Link to="/">
+                        <Text fontSize={["sm","md"]}>
+                        Home
+                        </Text>
+                    </Link>
+                    <Center height="40px">
                         <Divider orientation='vertical'/>
                     </Center>
-                    <Link to="/about">About</Link>
+                    <Link to="/about">
+                        <Text fontSize={["sm","md"]}>
+                            About
+                        </Text>
+                    </Link>
                 </HStack>
             </Box>
-            <Box style={{padding: "1rem 0"}}> <Outlet/> </Box>
+            <Box py="6"> <Outlet/> </Box>
         </Box>
     );
 }

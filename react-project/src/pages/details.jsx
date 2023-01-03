@@ -7,7 +7,7 @@ export default function Details() {
     const {id} = useParams();
 
     return (
-        <Box style={{padding: "1rem 0"}}>
+        <Box>
             <GameComponent id={id}/>
         </Box>
     );
