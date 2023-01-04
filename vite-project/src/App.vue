@@ -2,14 +2,18 @@
 	 <q-layout view="hHh lpR fFf">
 		  <q-header bordered class="bg-primary text-white">
 				<q-toolbar>
-					 <q-toolbar-title>
-						  <router-link to="/" style="text-decoration: none;color: white">
-								<q-avatar>
-									 <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
-								</q-avatar>
-								P2P : Playstation To PC
-					 </router-link>
-					 </q-toolbar-title>
+          <div class="q-mx-sm">
+            P2P : Playstation To PC
+          </div>
+          <q-separator vertical inset color="white" />
+          <router-link to="/" style="text-decoration: none;color: white" class="q-mx-sm">
+            Home
+          </router-link>
+          <q-separator vertical inset color="white" />
+          <router-link to="/about" style="text-decoration: none;color: white" class="q-mx-sm">
+            About
+          </router-link>
+
 				</q-toolbar>
 		  </q-header>
 		  <q-page-container class="text-center">

@@ -20,6 +20,7 @@
     "@vitejs/plugin-vue": "^3.0.0",
     "sass": "^1.32.12",
     "sass-loader": "^13.0.2",
+    "shave": "^5.0.2",
     "vite": "^3.0.0"
   }
 }
