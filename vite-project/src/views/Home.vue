@@ -30,7 +30,6 @@ import {useHead} from "@vueuse/head";
 
 const api = import.meta.env.VITE_API_URL;
 
-const name: string = 'Allan';
 const results = ref(null);
 
 useHead({
@@ -38,7 +37,8 @@ useHead({
 })
 
 onBeforeMount(() => {
-  fetch(api + '/games?fields=title,description&populate=image&sort=pcReleaseDate:desc').then((response) => response.json()).then((data) =>
-      results.value = data.data);
+  fetch(api + '/games?fields=title,description&populate=image&sort=pcReleaseDate:desc')
+      .then(response => response.json())
+      .then(response => results.value = response.data);
 });
 </script>

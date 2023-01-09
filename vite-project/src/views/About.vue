@@ -10,8 +10,7 @@
   </div>
 </template>
 
-<script>
-// TODO: régler probleme de titre dans le about
+<script setup lang="ts">
 import {useHead} from "@vueuse/head";
 
 useHead({

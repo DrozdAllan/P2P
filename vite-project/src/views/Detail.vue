@@ -1,10 +1,7 @@
 <template>
-  <!--  TODO: add page titles with game names-->
-  <div class="col">
-    <div v-if="!result" class="row">LOADING</div>
-    <div v-else class="row justify-center">
+  <div v-if="result" class="col">
+    <div class="row justify-center">
       <div class="q-ma-md text-h4">
-        <!--      TODO : skeleton -->
         {{ result.attributes.title }}
       </div>
     </div>
@@ -37,15 +34,14 @@ const api = import.meta.env.VITE_API_URL;
 
 const result = ref(null);
 
-// TODO: problème lifecycle ? data.attributes cherché trop tot pour le v-if ?
-onBeforeMount(() => {
-  fetch(api + '/games/' + useRoute().params.id + '?populate=image')
-      .then((response) => response.json())
-      .then((data) => {
+onBeforeMount(async () => {
+  await fetch(api + '/games/' + useRoute().params.id + '?populate=image')
+      .then(response => response.json())
+      .then(response => {
         useHead({
-          title: data.data.attributes.title
+          title: `P2P - ${response.data.attributes.title}`
         });
-        return result.value = data.data;
+        result.value = response.data;
       });
 });
 </script>
