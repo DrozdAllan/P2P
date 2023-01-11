@@ -167,3 +167,44 @@ react-project/.env.production.local
 react-project/npm-debug.log*
 react-project/yarn-debug.log*
 react-project/yarn-error.log*
+
+
+# Compiled output
+angular-project/dist
+angular-project/tmp
+angular-project/out-tsc
+angular-project/bazel-out
+# Node
+angular-project/node_modules
+angular-project/npm-debug.log
+angular-project/yarn-error.log
+# IDEs and editors
+angular-project/.idea/
+angular-project/.project
+angular-project/.classpath
+angular-project/.c9/
+angular-project/*.launch
+angular-project/.settings/
+angular-project/*.sublime-workspace
+# Visual Studio Code
+angular-project/.vscode/*
+angular-project/!.vscode/settings.json
+angular-project/!.vscode/tasks.json
+angular-project/!.vscode/launch.json
+angular-project/!.vscode/extensions.json
+angular-project/.history/*
+# Miscellaneous
+angular-project/.angular/cache
+angular-project/.sass-cache/
+angular-project/connect.lock
+angular-project/coverage
+angular-project/libpeerconnection.log
+angular-project/testem.log
+angular-project/typings
+# System files
+angular-project/.DS_Store
+angular-project/Thumbs.db
+angular-project/.editorconfig
+angular-project/.gitignore
+angular-project/src/assets/.gitkeep
+angular-project/package-lock.json
