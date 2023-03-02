@@ -1,1 +1,19 @@
-<p>home works!</p>
+<div>
+	<h1>These are the games that went from playstation consoles to PC</h1>
+
+	<div class="gamesGrid">
+		<mat-card *ngFor="let game of games">
+			<mat-card-header>
+				<mat-card-title>
+					{{game.attributes.title}}
+				</mat-card-title>
+			</mat-card-header>
+			<img mat-card-image src="http://localhost:1337{{game.attributes.image.data.attributes.url}}" />
+			<mat-card-content>
+				{{game.attributes.description}}
+			</mat-card-content>
+			<mat-card-actions>
+				<button routerLink="/detail/{{game.id}}"> Read more </button>
+			</mat-card-actions>
+		</mat-card>
+	</div>
