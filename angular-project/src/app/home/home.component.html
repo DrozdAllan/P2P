@@ -1,4 +1,4 @@
-<div>
+<div class="wrapper">
 	<h1>These are the games that went from playstation consoles to PC</h1>
 
 	<div class="gamesGrid">
@@ -13,7 +13,7 @@
 				{{game.attributes.description}}
 			</mat-card-content>
 			<mat-card-actions>
-				<button routerLink="/detail/{{game.id}}"> Read more </button>
+				<button mat-flat-button color="primary" routerLink="/game/{{game.id}}">Read more</button>
 			</mat-card-actions>
 		</mat-card>
 	</div>

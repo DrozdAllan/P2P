@@ -1,7 +1,25 @@
 <div class="wrapper">
+	<div *ngIf="game">
+		<h1>
 
-	<p>game-detail works!</p>
+			{{game.attributes.title}}
+		</h1>
 
-	<p *ngIf="game">{{game.attributes.title}}</p>
+		<div class="detailGrid">
+			<span>Release date on Playstation : <br> {{game.attributes.playstationReleaseDate}} </span>
+			<div>
 
+
+				<img src="http://localhost:1337{{game.attributes.image.data.attributes.url}}" />
+			</div>
+			<span>Release date on PC : <br> {{game.attributes.pcReleaseDate}} </span>
+		</div>
+
+		<div class="gameDesc">
+			<span>
+				{{game.attributes.description}}
+			</span>
+		</div>
+
+	</div>
 </div>

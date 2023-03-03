@@ -1,0 +1,32 @@
+.wrapper {
+	text-align: center;
+}
+
+h1 {
+	font-weight: normal;
+}
+
+.detailGrid {
+	display: grid;
+	grid-template-columns: 350px auto 350px;
+	justify-content: space-around;
+	align-items: center;
+}
+
+img {
+	max-width: 350px;
+	max-height: 350px;
+	align-self: center;
+	border-radius: 5px;
+}
+
+.gameDesc {
+	display: flex;
+	margin: 16px;
+	justify-content: center;
+
+	span {
+		width: 50%;
+		line-height: 1.5;
+	}
+}

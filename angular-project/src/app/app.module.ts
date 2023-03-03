@@ -12,7 +12,7 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
-// import { MatImage } from '@angular/material/image';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
 	declarations: [
@@ -28,7 +28,8 @@ import { MatCardModule } from '@angular/material/card';
 		BrowserAnimationsModule,
 		MatToolbarModule,
 		MatDividerModule,
-		MatCardModule
+		MatCardModule,
+		MatButtonModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

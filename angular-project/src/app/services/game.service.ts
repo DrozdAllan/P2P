@@ -17,6 +17,6 @@ export class GameService {
 	}
 
 	getGameDetail(id: number): Observable<any> {
-		return this.http.get(this.gameDetailUrl + id);
+		return this.http.get(this.gameDetailUrl + id + '?populate=image');
 	}
 }

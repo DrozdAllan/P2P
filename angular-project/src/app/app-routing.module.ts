@@ -5,10 +5,10 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-	{ path: 'home', component: HomeComponent },
+	{ path: '', component: HomeComponent, title: 'P2P - Playstation To PC' },
 	{ path: 'about', component: AboutComponent },
-	{ path: 'detail/:id', component: GameDetailComponent },
-	{ path: '**', redirectTo: '/home' },
+	{ path: 'game/:id', component: GameDetailComponent },
+	{ path: '**', redirectTo: '/' },
 ];
 
 @NgModule({
