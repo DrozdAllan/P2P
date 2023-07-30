@@ -2,17 +2,17 @@
 
 First, run Strapi backend :
 ```
-cd api ; npm run develop
+cd api ; npm run start
 ```
 Then, run Vue frontend :
 ```
 cd vite-project ; npm run dev
 ```
-or run React frontend :
+Or run React frontend :
 ```
 cd react-project ; npm run start
 ```
-or run Angular frontend :
+Or run Angular frontend :
 ```
 cd angular-project ; npm run start
 ```
