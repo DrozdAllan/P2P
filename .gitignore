@@ -44,7 +44,6 @@ api/*.7z
 api/*.csv
 api/*.dat
 api/*.dmg
-api/*.gz
 api/*.iso
 api/*.jar
 api/*.rar
@@ -71,6 +70,9 @@ api/*.pid
 
 api/.tmp
 api/*.log
+api/*.sql
+api/*.sqlite
+api/*.sqlite3
 
 
 ############################
@@ -81,6 +83,8 @@ api/*#
 api/ssl
 api/.idea
 api/nbproject
+api/public/uploads/*
+api/!public/uploads/.gitkeep
 
 ############################
 # Node.js
@@ -105,6 +109,7 @@ api/coverage
 # Strapi
 ############################
 
+api/.env
 api/license.txt
 api/exports
 api/*.cache
