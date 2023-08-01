@@ -2,7 +2,7 @@
 
 First, run Strapi backend :
 ```
-cd api ; npm install then npm run start
+cd api ; npm install then npm run build ; npm import my_data.gz then npm run start
 ```
 Then, run Vue frontend :
 ```

@@ -109,7 +109,6 @@ api/coverage
 # Strapi
 ############################
 
-api/.env
 api/license.txt
 api/exports
 api/*.cache
@@ -134,7 +133,7 @@ vite-project/node_modules
 vite-project/dist
 vite-project/dist-ssr
 vite-project/*.local
-vite-project/.env
+# vite-project/.env
 
 # Editor directories and files
 vite-project/.vscode/*
