@@ -1,8 +1,9 @@
-### 🚀 Getting started with P2P
+### 🚀 P2P
 
 First, run Strapi backend :
 ```
-cd api ; npm install then npm run build ; npm import my_data.gz then npm run start
+cd api ; npm install then npm run build ; npm import my_data.tar.gz then npm run start
+/!\ can't import on windows without a workaround for now : https://forum.strapi.io/t/data-import-fatal-error-on-4-6-0/25285/14 
 ```
 Then, run Vue frontend :
 ```
